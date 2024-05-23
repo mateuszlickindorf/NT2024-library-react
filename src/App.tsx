@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import LoginForm from './components/login-form/LoginForm'
+import BookList from './components/BookList';
+import { BookInterface } from './interfaces/BookInterface';
 
-function App() {
+const mockBooks: BookInterface[] = [
+  {
+    id: 1,
+    isbn: '12345',
+    title: 'Henryk Garncarz',
+    author: 'Taki Jeden',
+    publisher: 'PWR',
+    publicationYear: 2020,
+    availableCopies: 5,
+
+  },
+
+  {
+    id: 2,
+    isbn: '214372690',
+    title: 'Historia Polski',
+    author: 'Kamil Ślimak',
+    publisher: 'Palindrom',
+    publicationYear: 2019,
+    availableCopies: 3,
+  },
+];
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <LoginForm />
+        <BookList books={mockBooks} />
+      </div>
   );
-}
-
+};
 export default App;
