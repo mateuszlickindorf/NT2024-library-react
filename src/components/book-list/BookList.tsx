@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 import Book from './Book';
-import { BookInterface as BookType } from "../interfaces/BookInterface";
+import { BookInterface as BookType } from "../../interfaces/BookInterface";
 
 interface BookListProps {
     books: BookType[];

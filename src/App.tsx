@@ -1,38 +1,26 @@
 import React from 'react';
-import './App.css';
-import LoginForm from './components/login-form/LoginForm'
-import BookList from './components/BookList';
+import LoginForm from './components/login-form/LoginForm';
+import {Routes, Route, Navigate} from 'react-router-dom';
 import { BookInterface } from './interfaces/BookInterface';
+import HomePage from "./components/home-page/HomePage";
+import {LoanInterface} from "./interfaces/LoanInterface";
+import BookList from "./components/book-list/BookList";
+import LoanList from "./components/loan-list/LoanList";
+import mockBooks from './mocks/mockBooks';
+import mockLoans from './mocks/mockLoans';
 
-const mockBooks: BookInterface[] = [
-  {
-    id: 1,
-    isbn: '12345',
-    title: 'Henryk Garncarz',
-    author: 'Taki Jeden',
-    publisher: 'PWR',
-    publicationYear: 2020,
-    availableCopies: 5,
+function App() {
+    return (
+        <Routes>
+            <Route path="/home" element={<HomePage />}>
+                <Route path="books" element={<BookList books={mockBooks} />} />
+                <Route path="loans" element={<LoanList loans={mockLoans} />} />
+            </Route>
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="*" element={<h1>404</h1>} />
+        </Routes>
+    );
+}
 
-  },
-
-  {
-    id: 2,
-    isbn: '214372690',
-    title: 'Historia Polski',
-    author: 'Kamil Ślimak',
-    publisher: 'Palindrom',
-    publicationYear: 2019,
-    availableCopies: 3,
-  },
-];
-
-const App: React.FC = () => {
-  return (
-      <div>
-        <LoginForm />
-        <BookList books={mockBooks} />
-      </div>
-  );
-};
 export default App;

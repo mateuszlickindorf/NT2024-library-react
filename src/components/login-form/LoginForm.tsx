@@ -1,42 +1,45 @@
-import React, {useCallback, useMemo} from 'react';
-import "./LoginForm.css"
-import {Button, TextField} from "@mui/material";
-import {Form, Formik} from "formik";
-import * as yup from "yup";
-import LoginIcon from "@mui/icons-material/Login";
+import React, { useCallback, useMemo } from 'react';
+import './LoginForm.css';
+import { Button, TextField } from '@mui/material';
+import { Formik, Form } from 'formik';
+import * as yup from 'yup';
+import LoginIcon from '@mui/icons-material/Login';
+import { useNavigate } from 'react-router-dom';
+import logo from '../../assets/logo.png';
 
-function LoginForm(){
+function LoginForm() {
+    const navigate = useNavigate();
     const onSubmit = useCallback(
         (values: { username: string; password: string }, formik:any) => {
-            console.log(values)
+            navigate('/home');
         },
+        [navigate]
+    );
+
+    const validationSchema = useMemo(
+        () =>
+            yup.object().shape({
+                username: yup.string().required('Pole nie może być puste!'),
+                password: yup
+                    .string()
+                    .required('Pole nie może być puste!')
+                    .min(5, 'Hasło nie może być krótsze niż 5 znaków!'),
+            }),
         [],
     );
-    const validationSchema = useMemo(
-        ()=> yup.object().shape({
-            username: yup.string().required('Pole nie może być puste!'),
-            password: yup
-                .string()
-                .required('Pole nie może być puste!')
-                .min(5,"Hasło nie może być krótsze niż 5 znaków!"),
-        }),
-        [],
-    )
 
-    return(
+    return (
+        <div className="Login-container">
             <Formik
-                initialValues={{username: "", password: ""}}
+                initialValues={{ username: '', password: '' }}
                 onSubmit={onSubmit}
                 validationSchema={validationSchema}
                 validateOnChange
-                ValidateOnBlur
-                >
-                {(formik: any)=> (
-                    <form className="Login-form"
-                        id="signForm"
-                        noValidate
-                        onSubmit={formik.handleSubmit}
-                    >
+                validateOnBlur
+            >
+                {(formik: any) => (
+                    <Form className="Login-form" id="signForm" noValidate onSubmit={formik.handleSubmit}>
+                        <img src={logo} alt="Logo" className="Login-logo" />
                         <TextField
                             id="username"
                             name="username"
@@ -64,13 +67,14 @@ function LoginForm(){
                             type="submit"
                             form="signForm"
                             disabled={!(formik.isValid && formik.dirty)}
-                            >
+                        >
                             Zaloguj się
                         </Button>
-                    </form>
+                    </Form>
                 )}
             </Formik>
-    )
+        </div>
+    );
 }
 
 export default LoginForm;
