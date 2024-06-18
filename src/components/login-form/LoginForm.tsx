@@ -6,14 +6,23 @@ import * as yup from 'yup';
 import LoginIcon from '@mui/icons-material/Login';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import {useApi} from "../../api/ApiProvider";
 
 function LoginForm() {
     const navigate = useNavigate();
+    const apiClient = useApi();
+
     const onSubmit = useCallback(
         (values: { username: string; password: string }, formik:any) => {
-            navigate('/home');
+            apiClient.login(values).then((response) => {
+                if (response.success) {
+                    navigate("/home");
+                } else {
+                    formik.setFieldError('username', 'Invalid username or password')
+                }
+            })
         },
-        [navigate]
+        [apiClient, navigate]
     );
 
     const validationSchema = useMemo(

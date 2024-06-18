@@ -1,10 +1,13 @@
 import {AppBar, Box, IconButton, Toolbar, Typography} from "@mui/material";
 import {AccountCircle, Home} from "@mui/icons-material";
-import MenuIcon from "@mui/icons-material/Menu";
 import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
+
 
 export default function MenuAppBar() {
     const navigate = useNavigate();
+    //const {t} = useTranslation();      {t('library')}
+
     return (
         <AppBar position="static">
             <Toolbar>
@@ -19,7 +22,7 @@ export default function MenuAppBar() {
                     <Home />
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    Library
+                    Bilbioteka
                 </Typography>
                 <Box>
                     <IconButton
