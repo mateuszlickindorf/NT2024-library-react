@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 80px auto auto;
+    background: #ffffff;
+    padding-bottom: 20px;
+    width: 800px;
+    height: 500px;
+    border-radius: 30px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.text {
+    color: #1648a4;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.underline {
+    width: 61px;
+    height: 6px;
+    background: #1648a4;
+    border-radius: 9px;
+}
+
+.content {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.modal-text {
+    display: flex;
+    flex-direction: row;
+    color: #1648a4;
+    font-size: 24px;
+    justify-content: center;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+.modal-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.modal-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin-top: 35px;
+}

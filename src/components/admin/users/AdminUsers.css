@@ -1,0 +1,78 @@
+.user-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto auto;
+    background: #ffffff;
+    padding-bottom: 20px;
+    width: 800px;
+    border-radius: 30px;
+}
+
+.user-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.user-text {
+    color: #1648a4;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.user-underline {
+    width: 61px;
+    height: 6px;
+    background: #1648a4;
+    border-radius: 9px;
+}
+
+.user-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+
+.user-list {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 50%;
+}
+
+.user-add-form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    width: 50%;
+}
+
+.modal-text {
+    display: flex;
+    flex-direction: row;
+    color: #1648a4;
+    font-size: 22px;
+    justify-content: center;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+.modal-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin-top: 35px;
+}
