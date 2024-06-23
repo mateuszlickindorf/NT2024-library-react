@@ -23,13 +23,13 @@ export class UpdateLoanResponseDto {
     dueDate: string | undefined;
 }
 
-export class CreateRentalDto {
+export class CreateLoanDto {
     bookId: number | undefined;
     userId: number | undefined;
     endDate: string | undefined;
 }
 
-export class CreateRentalResponseDto {
+export class CreateLoanResponseDto {
     book: GetBookDto | undefined;
     userId: GetUserSimplifiedDto | undefined;
     startDate: string | undefined;

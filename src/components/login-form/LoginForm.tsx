@@ -7,20 +7,39 @@ import LoginIcon from '@mui/icons-material/Login';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import {useApi} from "../../api/ApiProvider";
+import {useTranslation} from "react-i18next";
 
 function LoginForm() {
     const navigate = useNavigate();
     const apiClient = useApi();
+    const {t} = useTranslation();
+
+    // get id of the user currently logging in
+    const getUserDetails = () => {
+        apiClient.getMe().then((response: any) => {
+            if (response.success) {
+                localStorage.setItem('userId', response.data.id);
+            } else {
+                return null;
+            }
+        });
+    };
 
     const onSubmit = useCallback(
         (values: { username: string; password: string }, formik:any) => {
             apiClient.login(values).then((response) => {
+                console.log(response);
                 if (response.success) {
-                    navigate("/home");
+                    getUserDetails();
+                    if (localStorage.getItem('userRole') === 'ROLE_ADMIN') {
+                        navigate('/admin_menu');
+                    } else {
+                        navigate('/reader_menu');
+                    }
                 } else {
-                    formik.setFieldError('username', 'Invalid username or password')
+                    formik.setFieldError('username', t('invalid_username_or_password'));
                 }
-            })
+            });
         },
         [apiClient, navigate]
     );
@@ -31,8 +50,8 @@ function LoginForm() {
                 username: yup.string().required('Pole nie może być puste!'),
                 password: yup
                     .string()
-                    .required('Pole nie może być puste!')
-                    .min(5, 'Hasło nie może być krótsze niż 5 znaków!'),
+                    .required(t('required_password'))
+                    .min(5, t('password_requirements')),
             }),
         [],
     );
@@ -52,7 +71,7 @@ function LoginForm() {
                         <TextField
                             id="username"
                             name="username"
-                            label="Nazwa użytkownika"
+                            label={t('username')}
                             variant="standard"
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -62,7 +81,7 @@ function LoginForm() {
                         <TextField
                             id="password"
                             name="password"
-                            label="Hasło"
+                            label={t('password')}
                             variant="standard"
                             type="password"
                             onChange={formik.handleChange}
@@ -77,7 +96,7 @@ function LoginForm() {
                             form="signForm"
                             disabled={!(formik.isValid && formik.dirty)}
                         >
-                            Zaloguj się
+                            {t('login')}
                         </Button>
                     </Form>
                 )}
