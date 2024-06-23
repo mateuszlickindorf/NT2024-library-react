@@ -1,12 +1,41 @@
-import React from 'react';
-import { Grid } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Grid, Typography, CircularProgress } from '@mui/material';
 import Book from './Book';
 import { BookInterface as BookType } from "../../interfaces/BookInterface";
+import { useApi } from "../../api/ApiProvider";
 
-interface BookListProps {
-    books: BookType[];
-}
-const BookList: React.FC<BookListProps> = ({ books }) => {
+const BookList: React.FC = () => {
+    const [books, setBooks] = useState<BookType[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+    const apiClient = useApi();
+
+    useEffect(() => {
+        apiClient.getBooks()
+            .then(response => {
+                if (response.success) {
+                    setBooks(response.data || []);
+                } else {
+                    setError('Failed to fetch books');
+                }
+            })
+            .catch(err => {
+                console.error('Error fetching books:', err);
+                setError('Error fetching books');
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [apiClient]);
+
+    if (loading) {
+        return <CircularProgress />;
+    }
+
+    if (error) {
+        return <Typography color="error">{error}</Typography>;
+    }
+
     return (
         <Grid container spacing={3}>
             {books.map((book) => (
@@ -17,6 +46,5 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
         </Grid>
     );
 };
-export default BookList;
 
-
+export default BookList

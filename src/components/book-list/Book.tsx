@@ -1,6 +1,7 @@
+// Book.tsx
 import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
-import {BookInterface} from "../../interfaces/BookInterface";
+import { BookInterface } from "../../interfaces/BookInterface";
 
 interface BookProps {
     book: BookInterface;
@@ -20,4 +21,5 @@ const Book: React.FC<BookProps> = ({ book }) => {
         </Card>
     );
 };
+
 export default Book;

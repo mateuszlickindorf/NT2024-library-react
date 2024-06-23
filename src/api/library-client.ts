@@ -1,11 +1,9 @@
-import axios, {AxiosError, AxiosInstance, AxiosResponse} from "axios";
-import {LoginDto, LoginResponseDto} from "./dto/login.dto";
+import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
+import { LoginDto, LoginResponseDto } from "./dto/login.dto";
+import { BookInterface } from "../interfaces/BookInterface";
 
-export type ClientResponse<T> = {
-    success: boolean,
-    data: T,
-    statusCode: number
-}
+export type ClientResponse<T> = { success: boolean, data: T | null, statusCode: number }
+
 export class LibraryClient {
     private client: AxiosInstance;
 
@@ -24,7 +22,7 @@ export class LibraryClient {
                 data: response.data,
                 statusCode: response.status,
             }
-        } catch (error){
+        } catch (error) {
             const axiosError = error as AxiosError<Error>;
             return {
                 success: false,
@@ -34,21 +32,20 @@ export class LibraryClient {
         }
     }
 
-    public async getBooks(): Promise<ClientResponse<ClientResponse<any> | null>> {
+    public async getBooks(): Promise<ClientResponse<BookInterface[]>> {
         try {
-            const response = await this.client.get('/books');
+            const response: AxiosResponse<BookInterface[]> = await this.client.get('/books');
             return {
                 success: true,
                 data: response.data,
                 statusCode: response.status,
             }
-
         } catch (error) {
             const axiosError = error as AxiosError<Error>;
             return {
                 success: false,
                 data: null,
-                statusCode: 0,
+                statusCode: axiosError.response?.status || 0,
             }
         }
     }
