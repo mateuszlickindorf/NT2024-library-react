@@ -1,0 +1,85 @@
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 100px;
+    background: #ffffff;
+    padding-bottom: 20px;
+    width: 700px;
+    border-radius: 30px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.text {
+    color: #1648a4;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.underline {
+    width: 61px;
+    height: 6px;
+    background: #1648a4;
+    border-radius: 9px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin: 55px 250px 60px;
+}
+
+.icons {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    color: #1648a4;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.modal-text {
+    display: flex;
+    color: #1648a4;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+.modal-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #062967;
+    font-size: 18px;
+}
+
+.modal-text-body {
+    color: #062967;
+    padding-top: 20px;
+    font-size: 18px;
+}
+
+.modal-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}

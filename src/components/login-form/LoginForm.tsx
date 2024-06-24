@@ -12,7 +12,7 @@ import {useTranslation} from "react-i18next";
 function LoginForm() {
     const navigate = useNavigate();
     const apiClient = useApi();
-    const {t} = useTranslation();
+    const {t, i18n} = useTranslation();
 
     // get id of the user currently logging in
     const getUserDetails = () => {
@@ -56,52 +56,65 @@ function LoginForm() {
         [],
     );
 
+  const changeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem('i18nextLng', lang); // Store selected language
+  };
+
     return (
-        <div className="Login-container">
-            <Formik
-                initialValues={{ username: '', password: '' }}
-                onSubmit={onSubmit}
-                validationSchema={validationSchema}
-                validateOnChange
-                validateOnBlur
-            >
-                {(formik: any) => (
-                    <Form className="Login-form" id="signForm" noValidate onSubmit={formik.handleSubmit}>
-                        <img src={logo} alt="Logo" className="Login-logo" />
-                        <TextField
-                            id="username"
-                            name="username"
-                            label={t('username')}
-                            variant="standard"
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            error={formik.touched.username && !!formik.errors.username}
-                            helperText={formik.touched.username && formik.errors.username}
-                        />
-                        <TextField
-                            id="password"
-                            name="password"
-                            label={t('password')}
-                            variant="standard"
-                            type="password"
-                            onChange={formik.handleChange}
-                            onBlur={formik.handleBlur}
-                            error={formik.touched.password && !!formik.errors.password}
-                            helperText={formik.touched.password && formik.errors.password}
-                        />
-                        <Button
-                            variant="contained"
-                            startIcon={<LoginIcon />}
-                            type="submit"
-                            form="signForm"
-                            disabled={!(formik.isValid && formik.dirty)}
-                        >
-                            {t('login')}
-                        </Button>
-                    </Form>
-                )}
-            </Formik>
+      <div className="Login-container">
+        <div className="language-buttons">
+          <Button variant="contained" onClick={() => changeLanguage('en')}>
+            EN
+          </Button>
+          <Button variant="contained" onClick={() => changeLanguage('pl')}>
+            PL
+          </Button>
         </div>
+        <Formik
+          initialValues={{ username: '', password: '' }}
+          onSubmit={onSubmit}
+          validationSchema={validationSchema}
+          validateOnChange
+          validateOnBlur
+        >
+          {(formik: any) => (
+            <Form className="Login-form" id="signForm" noValidate onSubmit={formik.handleSubmit}>
+              <img src={logo} alt="Logo" className="Login-logo" />
+              <TextField
+                id="username"
+                name="username"
+                label={t('username')}
+                variant="standard"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.username && !!formik.errors.username}
+                helperText={formik.touched.username && formik.errors.username}
+              />
+              <TextField
+                id="password"
+                name="password"
+                label={t('password')}
+                variant="standard"
+                type="password"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.password && !!formik.errors.password}
+                helperText={formik.touched.password && formik.errors.password}
+              />
+              <Button
+                variant="contained"
+                startIcon={<LoginIcon />}
+                type="submit"
+                form="signForm"
+                disabled={!(formik.isValid && formik.dirty)}
+              >
+                {t('login')}
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      </div>
     );
 }
 

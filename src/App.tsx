@@ -11,6 +11,11 @@ import AdminMenu from "./components/admin/menu/AdminMenu";
 import AdminLoans from "./components/admin/loans/AdminLoans";
 import AdminReviews from "./components/admin/reviews/AdminReviews";
 import AdminUsers from "./components/admin/users/AdminUsers";
+import RequireAuthReader from "./auth-config/RequireAuthReader";
+import ReaderBooks from "./components/reader/books/ReaderBooks";
+import ReaderMenu from "./components/reader/menu/ReaderMenu";
+import ReaderLoans from "./components/reader/loans/ReaderLoans";
+import ReaderReviews from "./components/reader/reviews/ReaderReviews";
 
 function App() {
     return (
@@ -63,6 +68,42 @@ function App() {
                                     {' '}
                                     <AdminReviews />{' '}
                                 </RequireAuthAdmin>
+                            }
+                        />
+                        <Route
+                            path="/reader_books"
+                            element={
+                                <RequireAuthReader>
+                                    {' '}
+                                    <ReaderBooks />{' '}
+                                </RequireAuthReader>
+                            }
+                        />
+                        <Route
+                            path="/reader_menu"
+                            element={
+                                <RequireAuthReader>
+                                    {' '}
+                                    <ReaderMenu />{' '}
+                                </RequireAuthReader>
+                            }
+                        />
+                        <Route
+                            path="/reader_loans"
+                            element={
+                                <RequireAuthReader>
+                                    {' '}
+                                    <ReaderLoans />{' '}
+                                </RequireAuthReader>
+                            }
+                        />
+                        <Route
+                            path="/reader_reviews"
+                            element={
+                            <RequireAuthReader>
+                                {' '}
+                                <ReaderReviews />{' '}
+                            </RequireAuthReader>
                             }
                         />
                     </Routes>

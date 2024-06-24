@@ -31,7 +31,7 @@ function AdminBooks() {
     );
     const [users, setUsers] = useState<any[]>([]);
     const [selectedUser, setSelectedUser] = useState<any>('');
-    const [, setRentals] = useState<any[]>([]);
+    const [, setLoans] = useState<any[]>([]);
     const [reviews, setReviews] = useState<any[]>([]);
 
     useEffect(() => {
@@ -99,20 +99,20 @@ function AdminBooks() {
             setSelectedBookIndex(null);
         };
 
-        const handleRentalSubmit = () => {
+        const handleLoanSubmit = () => {
             if (!selectedBook || !selectedUser || !endDate) return;
-            const rentalData = {
+            const loanData = {
                 bookId: selectedBook.id,
                 userId: selectedUser,
                 endDate: endDate,
             };
-            apiClient.addLoan(rentalData).then((response: any) => {
+            apiClient.addLoan(loanData).then((response: any) => {
                 if (response.success) {
-                    console.log('Rental added!', response.data);
-                    setRentals((prevRentals) => [...prevRentals, response.data]);
+                    console.log('Loan added!', response.data);
+                    setLoans((prevLoans) => [...prevLoans, response.data]);
                     setConfirmationModalOpen(true);
                 } else {
-                    console.error('Error adding rental:', response.statusCode);
+                    console.error('Error adding loan:', response.statusCode);
                 }
             });
         };
@@ -367,7 +367,7 @@ function AdminBooks() {
                                         </div>
                                     )}
                                 </div>
-                                <div className="modal-rental-content">
+                                <div className="modal-loan-content">
                                     <InputLabel className="modal-text-body">
                                         {t('select_user')}
                                     </InputLabel>
@@ -398,7 +398,7 @@ function AdminBooks() {
                                         className="modal-text-body"
                                     />
                                     <Button
-                                        onClick={handleRentalSubmit}
+                                        onClick={handleLoanSubmit}
                                         variant="contained"
                                         size="medium"
                                         className="modal-button"

@@ -5,14 +5,14 @@ export class GetLoanDto {
     id: number | undefined;
     book: GetBookDto | undefined;
     user: GetUserSimplifiedDto | undefined;
-    loanDate: string | undefined;
+    startDate: string | undefined;
     endDate: string | undefined;
     wasReturned: boolean | undefined;
 }
 
 export class UpdateLoanDto {
     id: number | undefined;
-    dueDate: string | null | undefined;
+    returnDate: string | null | undefined;
 }
 
 export class UpdateLoanResponseDto {
@@ -20,7 +20,7 @@ export class UpdateLoanResponseDto {
     user: GetUserSimplifiedDto | undefined;
     startDate: string | undefined;
     endDate: string | undefined;
-    dueDate: string | undefined;
+    returnDate: string | undefined;
 }
 
 export class CreateLoanDto {

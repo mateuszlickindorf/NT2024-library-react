@@ -40,16 +40,16 @@ export class LibraryClient {
         });
 
         this.client.interceptors.response.use(
-            (response) => {
-                return response;
-            },
-            (error) => {
-                if (error.response && error.response.status === 403) {
-                    localStorage.removeItem('authToken');
-                    window.location.href = '/login';
-                }
-                return Promise.reject(error);
-            },
+          (response) => {
+              return response;
+          },
+          (error) => {
+              if (error.response && error.response.status === 403) {
+                  localStorage.removeItem('authToken');
+                  window.location.href = '/login';
+              }
+              return Promise.reject(error);
+          },
         );
 
         const token = localStorage.getItem('authToken'); // get a token if a page is reloaded
@@ -59,12 +59,12 @@ export class LibraryClient {
     }
 
     public async login(
-        data: LoginDto,
+      data: LoginDto,
     ): Promise<ClientResponse<LoginResponseDto | null>> {
         try {
             const response: AxiosResponse<LoginResponseDto> = await this.client.post(
-                '/auth/login',
-                data,
+              '/auth/login',
+              data,
             );
             const token = response.data.token;
             if (typeof token === 'string') {
@@ -97,11 +97,11 @@ export class LibraryClient {
     }
 
     public async registerUser(
-        data: RegisterDto,
+      data: RegisterDto,
     ): Promise<ClientResponse<RegisterResponseDto | null>> {
         try {
             const response: AxiosResponse<RegisterResponseDto> =
-                await this.client.post('/auth/register', data);
+              await this.client.post('/auth/register', data);
             return {
                 success: true,
                 data: response.data,
@@ -119,11 +119,11 @@ export class LibraryClient {
     }
 
     public async addBook(
-        data: CreateBookDto,
+      data: CreateBookDto,
     ): Promise<ClientResponse<CreateBookResponseDto | null>> {
         try {
             const response: AxiosResponse<CreateBookResponseDto> =
-                await this.client.post('/books/add', data);
+              await this.client.post('/books/add', data);
             return {
                 success: true,
                 data: response.data,
@@ -143,7 +143,7 @@ export class LibraryClient {
     public async getBooks(): Promise<ClientResponse<GetBookDto | null>> {
         try {
             const response: AxiosResponse<GetBookDto> =
-                await this.client.get('books/get');
+              await this.client.get('/books/get');
             return {
                 success: true,
                 data: response.data,
@@ -160,11 +160,11 @@ export class LibraryClient {
     }
 
     public async getBookById(
-        id: number,
+      id: number,
     ): Promise<ClientResponse<GetBookDto | null>> {
         try {
             const response: AxiosResponse<GetBookDto> = await this.client.get(
-                `books/${id}`,
+              `/books/${id}`,
             );
             return {
                 success: true,
@@ -184,7 +184,7 @@ export class LibraryClient {
     public async deleteBook(id: number): Promise<ClientResponse<null>> {
         try {
             const response: AxiosResponse<null> = await this.client.delete(
-                `books/${id}`,
+              `/books/${id}`,
             );
             return {
                 success: true,
@@ -193,31 +193,6 @@ export class LibraryClient {
             };
         } catch (error) {
             const AxiosError = error as AxiosError<Error>;
-            return {
-                success: false,
-                data: null,
-                statusCode: AxiosError.response?.status || 0,
-            };
-        }
-    }
-
-    public async editBook(
-        data: EditBookDto,
-    ): Promise<ClientResponse<GetBookDto | null>> {
-        try {
-            console.log(data);
-            const response: AxiosResponse<GetBookDto> = await this.client.patch(
-                'books/edit',
-                data,
-            );
-            return {
-                success: true,
-                data: response.data,
-                statusCode: response.status,
-            };
-        } catch (error) {
-            const AxiosError = error as AxiosError<Error>;
-
             return {
                 success: false,
                 data: null,
@@ -229,7 +204,7 @@ export class LibraryClient {
     public async getLoans(): Promise<ClientResponse<GetLoanDto | null>> {
         try {
             const response: AxiosResponse<GetLoanDto> =
-                await this.client.get('loans/get');
+              await this.client.get('/loans/get');
             return {
                 success: true,
                 data: response.data,
@@ -246,11 +221,11 @@ export class LibraryClient {
     }
 
     public async getLoansByUserId(
-        id: number,
+      id: number,
     ): Promise<ClientResponse<GetLoanDto | null>> {
         try {
             const response: AxiosResponse<GetLoanDto> = await this.client.get(
-                `loans/get?userId=${id}`,
+              `/loans/get?userId=${id}`,
             );
             return {
                 success: true,
@@ -268,34 +243,11 @@ export class LibraryClient {
     }
 
     public async addLoan(
-        data: CreateLoanDto,
+      data: CreateLoanDto,
     ): Promise<ClientResponse<CreateLoanResponseDto | null>> {
         try {
             const response: AxiosResponse<CreateLoanResponseDto> =
-                await this.client.post('/loans/add', data);
-            return {
-                success: true,
-                data: response.data,
-                statusCode: response.status,
-            };
-        } catch (error) {
-            const AxiosError = error as AxiosError<Error>;
-
-            return {
-                success: false,
-                data: null,
-                statusCode: AxiosError.response?.status || 0,
-            };
-        }
-    }
-
-    public async updateLoan(
-        data: UpdateLoanDto,
-    ): Promise<ClientResponse<UpdateLoanResponseDto | null>> {
-        try {
-            console.log(data);
-            const response: AxiosResponse<UpdateLoanResponseDto> =
-                await this.client.patch('loans/update', data);
+              await this.client.post('/loans/add', data);
             return {
                 success: true,
                 data: response.data,
@@ -315,7 +267,7 @@ export class LibraryClient {
     public async getMe(): Promise<ClientResponse<GetUserFullDto | null>> {
         try {
             const response: AxiosResponse<GetUserFullDto> =
-                await this.client.get('users/get/me');
+              await this.client.get('/users/get/me');
             return {
                 success: true,
                 data: response.data,
@@ -334,7 +286,7 @@ export class LibraryClient {
     public async getUsers(): Promise<ClientResponse<GetUserFullDto | null>> {
         try {
             const response: AxiosResponse<GetUserFullDto> =
-                await this.client.get('users/get');
+              await this.client.get('/users/get');
             return {
                 success: true,
                 data: response.data,
@@ -350,10 +302,33 @@ export class LibraryClient {
         }
     }
 
+    public async updateLoan(
+      data: UpdateLoanDto,
+    ): Promise<ClientResponse<UpdateLoanResponseDto | null>> {
+        try {
+            console.log(data);
+            const response: AxiosResponse<UpdateLoanResponseDto> =
+              await this.client.patch('/loans/update', data);
+            return {
+                success: true,
+                data: response.data,
+                statusCode: response.status,
+            };
+        } catch (error) {
+            const AxiosError = error as AxiosError<Error>;
+
+            return {
+                success: false,
+                data: null,
+                statusCode: AxiosError.response?.status || 0,
+            };
+        }
+    }
+
     public async deleteUser(id: number): Promise<ClientResponse<null>> {
         try {
             const response: AxiosResponse<null> = await this.client.delete(
-                `users/${id}`,
+              `/users/${id}`,
             );
             return {
                 success: true,
@@ -373,7 +348,7 @@ export class LibraryClient {
     public async getReviews(): Promise<ClientResponse<GetReviewDto | null>> {
         try {
             const response: AxiosResponse<GetReviewDto> =
-                await this.client.get('reviews/get');
+              await this.client.get('/reviews/get');
             return {
                 success: true,
                 data: response.data,
@@ -390,11 +365,11 @@ export class LibraryClient {
     }
 
     public async getReviewsByUser(
-        id: number,
+      id: number,
     ): Promise<ClientResponse<GetReviewDto | null>> {
         try {
             const response: AxiosResponse<GetReviewDto> = await this.client.get(
-                `reviews/get?userId=${id}`,
+              `/reviews/get?userId=${id}`,
             );
             return {
                 success: true,
@@ -412,11 +387,11 @@ export class LibraryClient {
     }
 
     public async getReviewsByBook(
-        id: number,
+      id: number,
     ): Promise<ClientResponse<GetReviewDto | null>> {
         try {
             const response: AxiosResponse<GetReviewDto> = await this.client.get(
-                `reviews/get?bookId=${id}`,
+              `/reviews/get?bookId=${id}`,
             );
             return {
                 success: true,
@@ -434,11 +409,11 @@ export class LibraryClient {
     }
 
     public async addReview(
-        data: CreateReviewDto,
+      data: CreateReviewDto,
     ): Promise<ClientResponse<CreateReviewResponseDto | null>> {
         try {
             const response: AxiosResponse<CreateReviewResponseDto> =
-                await this.client.post('/reviews/add', data);
+              await this.client.post('/reviews/add', data);
             return {
                 success: true,
                 data: response.data,
@@ -458,7 +433,7 @@ export class LibraryClient {
     public async deleteReview(id: number): Promise<ClientResponse<null>> {
         try {
             const response: AxiosResponse<null> = await this.client.delete(
-                `reviews/${id}`,
+              `/reviews/${id}`,
             );
             return {
                 success: true,
@@ -476,12 +451,37 @@ export class LibraryClient {
     }
 
     public async editReview(
-        data: EditReviewDto,
+      data: EditReviewDto,
     ): Promise<ClientResponse<EditReviewResponseDto | null>> {
         try {
             console.log(data);
             const response: AxiosResponse<EditReviewResponseDto> =
-                await this.client.patch('reviews/edit', data);
+              await this.client.patch('/reviews/edit', data);
+            return {
+                success: true,
+                data: response.data,
+                statusCode: response.status,
+            };
+        } catch (error) {
+            const AxiosError = error as AxiosError<Error>;
+
+            return {
+                success: false,
+                data: null,
+                statusCode: AxiosError.response?.status || 0,
+            };
+        }
+    }
+
+    public async editBook(
+      data: EditBookDto,
+    ): Promise<ClientResponse<GetBookDto | null>> {
+        try {
+            console.log(data);
+            const response: AxiosResponse<GetBookDto> = await this.client.patch(
+              '/books/edit',
+              data,
+            );
             return {
                 success: true,
                 data: response.data,

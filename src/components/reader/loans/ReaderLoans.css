@@ -1,0 +1,104 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 80px auto auto;
+    background: #ffffff;
+    padding-bottom: 20px;
+    width: 800px;
+    height: 500px;
+    border-radius: 30px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.text {
+    color: #1648a4;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.underline {
+    width: 61px;
+    height: 6px;
+    background: #1648a4;
+    border-radius: 9px;
+}
+
+.content {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+}
+
+.modal-underline-minor {
+    width: 61px;
+    height: 4px;
+    background: #1648a4;
+    border-radius: 9px;
+}
+
+.modal-text-body {
+    color: #062967;
+    font-size: 18px;
+}
+
+.modal-rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    color: #062967;
+    padding-top: 20px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.modal-button {
+    width: 60%;
+    margin-top: 135px;
+}
+
+.add-review-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    align-items: center;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+.modal-underline-minor {
+    align-items: center;
+    width: 61px;
+    height: 4px;
+    margin-top: -20px;
+    background: #1648a4;
+    border-radius: 9px;
+}

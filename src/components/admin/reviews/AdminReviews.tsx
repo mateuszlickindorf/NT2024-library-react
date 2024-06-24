@@ -25,10 +25,10 @@ function AdminReviews() {
         useEffect(() => {
             apiClient.getReviews().then((response: any) => {
                 if (response.success) {
-                    console.log('Rentals displayed!', response.data);
+                    console.log('Loans displayed!', response.data);
                     setReviews(response.data);
                 } else {
-                    console.error('Error displaying rentals:', response.statusCode);
+                    console.error('Error displaying loans:', response.statusCode);
                 }
             });
         }, []);
