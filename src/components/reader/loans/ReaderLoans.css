@@ -1,12 +1,13 @@
-.container {
+container {
     display: flex;
     flex-direction: column;
-    margin: 80px auto auto;
-    background: #ffffff;
-    padding-bottom: 20px;
+    margin: 60px auto; /* Reduced top margin */
+    background: #e8f6f3; /* Light teal background */
+    padding: 20px; /* Unified padding */
     width: 800px;
-    height: 500px;
-    border-radius: 30px;
+    height: auto; /* Removed fixed height */
+    border-radius: 25px; /* Reduced border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
 }
 
 .header {
@@ -15,20 +16,20 @@
     align-items: center;
     gap: 15px;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px; /* Adjusted margin-top */
 }
 
 .text {
-    color: #1648a4;
-    font-size: 48px;
+    color: #004d40; /* Teal shade */
+    font-size: 42px; /* Slightly reduced size */
     font-weight: 700;
 }
 
 .underline {
-    width: 61px;
+    width: 70px; /* Increased width */
     height: 6px;
-    background: #1648a4;
-    border-radius: 9px;
+    background: #004d40; /* Teal shade */
+    border-radius: 5px; /* Reduced border radius */
 }
 
 .content {
@@ -38,7 +39,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    gap: 20px;
+    gap: 25px; /* Increased gap for better spacing */
 }
 
 .modal-header {
@@ -50,14 +51,15 @@
 }
 
 .modal-underline-minor {
-    width: 61px;
+    width: 70px; /* Increased width */
     height: 4px;
-    background: #1648a4;
-    border-radius: 9px;
+    background: #004d40; /* Matching shade */
+    border-radius: 5px; /* Reduced border radius */
+    margin-top: -10px; /* Adjusted margin */
 }
 
 .modal-text-body {
-    color: #062967;
+    color: #00695c; /* Darker teal shade */
     font-size: 18px;
 }
 
@@ -67,7 +69,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 15px;
-    color: #062967;
+    color: #00695c; /* Matching shade */
     padding-top: 20px;
     font-size: 18px;
     font-weight: 700;
@@ -75,7 +77,7 @@
 
 .modal-button {
     width: 60%;
-    margin-top: 135px;
+    margin-top: 25px; /* Adjusted margin-top */
 }
 
 .add-review-form {
@@ -92,13 +94,4 @@
     justify-content: center;
     padding: 20px;
     gap: 10px;
-}
-
-.modal-underline-minor {
-    align-items: center;
-    width: 61px;
-    height: 4px;
-    margin-top: -20px;
-    background: #1648a4;
-    border-radius: 9px;
 }

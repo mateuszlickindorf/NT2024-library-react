@@ -1,13 +1,14 @@
-.container {
+container {
     position: relative;
     display: flex;
     flex-direction: column;
     margin: auto;
     margin-top: 100px;
-    background: #ffffff;
-    padding-bottom: 20px;
+    background: #f9f9f9; /* Light grey background */
+    padding: 20px; /* Unified padding for simplicity */
     width: 700px;
-    border-radius: 30px;
+    border-radius: 25px; /* Reduced border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
 }
 
 .header {
@@ -16,27 +17,27 @@
     align-items: center;
     gap: 15px;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px; /* Adjusted margin-top */
 }
 
 .text {
-    color: #1648a4;
-    font-size: 48px;
+    color: #306754; /* Soft green shade */
+    font-size: 42px; /* Slightly reduced size */
     font-weight: 700;
 }
 
 .underline {
-    width: 61px;
+    width: 70px; /* Increased width */
     height: 6px;
-    background: #1648a4;
-    border-radius: 9px;
+    background: #306754; /* Matching soft green */
+    border-radius: 5px; /* Reduced border radius */
 }
 
 .buttons {
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    margin: 55px 250px 60px;
+    gap: 40px; /* Reduced gap for better spacing */
+    margin: 55px 150px 60px; /* Simplified margin */
 }
 
 .icons {
@@ -48,18 +49,18 @@
 }
 
 .icon {
-    color: #1648a4;
-    font-size: 50px;
+    color: #306754; /* Matching soft green */
+    font-size: 45px; /* Slightly reduced font size */
     cursor: pointer;
 }
 
 .modal-text {
     display: flex;
-    color: #1648a4;
+    color: #306754; /* Matching soft green */
     font-size: 24px;
     justify-content: center;
     align-items: center;
-    font-weight: bolder;
+    font-weight: 600; /* Adjusted weight for balance */
     margin-bottom: 20px;
 }
 
@@ -67,12 +68,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #062967;
+    color: #3a4d54; /* Dark teal shade */
     font-size: 18px;
 }
 
 .modal-text-body {
-    color: #062967;
+    color: #3a4d54; /* Dark teal shade */
     padding-top: 20px;
     font-size: 18px;
 }
@@ -81,5 +82,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 25px; /* Adjusted margin-top */
 }

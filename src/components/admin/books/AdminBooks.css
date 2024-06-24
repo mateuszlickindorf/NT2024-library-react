@@ -1,11 +1,12 @@
 .book-container {
     display: flex;
     flex-direction: column;
-    margin: 10px auto auto;
-    background: #ffffff;
+    margin: 20px auto; /* Increased margin for better spacing */
+    background: #f9f9f9; /* Softer white background for less strain */
     padding-bottom: 20px;
     width: 800px;
-    border-radius: 30px;
+    border-radius: 20px; /* Subtler border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
 }
 
 .book-header {
@@ -14,108 +15,80 @@
     align-items: center;
     gap: 15px;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px; /* Slightly reduced margin-top */
 }
 
 .book-text {
-    color: #1648a4;
-    font-size: 48px;
+    color: #1a3e8c; /* Darker shade for better readability */
+    font-size: 42px; /* Slightly reduced font size to better fit headers */
     font-weight: 700;
 }
 
 .book-underline {
-    width: 61px;
+    width: 80px; /* Increased underline width */
     height: 6px;
-    background: #1648a4;
-    border-radius: 9px;
+    background: #1a3e8c; /* Matching color with book-text */
+    border-radius: 3px; /* Reduced border radius */
 }
 
 .book-content {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around; /* Changed for better spacing */
     padding: 20px;
     gap: 20px;
 }
 
-.book-list {
+.book-list, .book-add-form, .book-edit-form {
     padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
-    width: 80%;
+    border: 1px solid #dddddd; /* Added border for definition */
+    border-radius: 10px; /* Tiny border radius for form boxes */
 }
 
-.book-add-form {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-    align-items: center;
-    width: 50%;
-}
+.book-list { width: 75%; }
+.book-add-form, .book-edit-form { width: 60%; } /* Adjusted width for better alignment */
 
 .modal-headers {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 20px;
-    margin-right: 110px;
+    margin: 0 40px; /* Simplified margin shorthand */
     padding: 20px;
     gap: 10px;
+    border-bottom: 1px solid #e0e0e0; /* Adds a boundary between header and content */
 }
 
 .modal-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 380px;
-    margin-top: -50px;
-    margin-left: 20px;
-    margin-right: 20px;
+    height: auto; /* Adjusted height for flexibility */
+    margin: 10px 20px; /* Simplified margin */
     padding: 20px;
-    gap: 10px;
+    gap: 20px; /* Increased gap for better spacing */
 }
 
-.modal-book-content {
+.modal-book-content, .modal-loan-content, .modal-review-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px; /* Consistent spacing */
     color: #062967;
     font-size: 18px;
-    width: 250px;
-}
-
-.modal-loan-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    color: #062967;
-    font-size: 18px;
-    width: 250px;
-}
-
-.modal-review-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    color: #062967;
-    font-size: 18px;
-    width: 250px;
+    width: 30%; /* Better layout handling */
 }
 
 .modal-horizontal-line {
     width: 6px;
     height: 61px;
     background: #1648a4;
-    border-radius: 9px;
+    border-radius: 3px; /* Matching radius */
 }
 
 .modal-text-body {
@@ -125,17 +98,19 @@
 }
 
 .modal-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     gap: 30px;
     width: 100%;
-    margin-top: 35px;
+    margin-top: 25px; /* Adjusted margin-top */
 }
 
-.book-underline-minor {
-    align-items: center;
-    width: 61px;
-    height: 2px;
+.book-underline-minor, .modal-underline-minor {
+    width: 80px; /* Increased width */
+    height: 4px;
     background: #1648a4;
-    border-radius: 9px;
+    border-radius: 3px; /* Matching radius */
 }
 
 .modal-text {
@@ -144,17 +119,8 @@
     color: #1648a4;
     font-size: 22px;
     justify-content: center;
-    font-weight: bold;
-    margin-top: auto;
-}
-
-.modal-button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 30px;
-    width: 100%;
-    margin-top: 35px;
+    font-weight: 600; /* Adjusted weight for better typography */
+    margin-top: 15px; /* Added margin-top for space consistency */
 }
 
 .modal-header {
@@ -162,24 +128,6 @@
     flex-direction: column;
     align-items: center;
     color: #1648a4;
-    gap: 25px;
-    width: 100%;
-}
-
-.modal-underline-minor {
-    width: 61px;
-    height: 4px;
-    margin-top: 10px;
-    background: #1648a4;
-    border-radius: 9px;
-}
-
-.book-edit-form {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-    align-items: center;
+    gap: 20px; /* Adjusted gap */
     width: 100%;
 }

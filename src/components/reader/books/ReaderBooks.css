@@ -1,11 +1,12 @@
 .book-container-reader {
     display: flex;
     flex-direction: column;
-    margin: 10px auto auto;
-    background: #ffffff;
-    padding-bottom: 20px;
+    margin: 20px auto;
+    background: #f0f8ff; /* Light blue background */
+    padding: 20px; /* Unified padding */
     width: 700px;
-    border-radius: 30px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
 }
 
 .book-header-reader {
@@ -14,20 +15,20 @@
     align-items: center;
     gap: 15px;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .book-text-reader {
-    color: #1648a4;
-    font-size: 48px;
+    color: #075e54; /* Dark green shade */
+    font-size: 42px; /* Slightly reduced size */
     font-weight: 700;
 }
 
 .book-underline-reader {
-    width: 61px;
+    width: 70px; /* Increased width */
     height: 6px;
-    background: #1648a4;
-    border-radius: 9px;
+    background: #075e54; /* Matching shade */
+    border-radius: 5px; /* Reduced border radius */
 }
 
 .book-content-reader {
@@ -37,7 +38,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    gap: 20px;
+    gap: 25px; /* Increased gap for better spacing */
 }
 
 .book-list-reader {
@@ -54,78 +55,60 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 20px;
-    margin-right: 110px;
+    margin: 0 40px; /* Simplified margin shorthand */
     padding: 20px;
     gap: 10px;
+    border-bottom: 1px solid #e0e0e0; /* Added boundary */
 }
 
 .modal-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 380px;
-    margin-top: -50px;
-    margin-left: 20px;
-    margin-right: 20px;
+    height: auto; /* Adjusted height for flexibility */
+    margin: 10px 20px; /* Simplified margin */
     padding: 20px;
-    gap: 10px;
+    gap: 20px; /* Increased gap for better spacing */
+    width: 100%; /* Ensuring the modal content is wide enough */
 }
 
-.modal-book-content {
+.modal-book-content, .modal-rental-content, .modal-review-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
-    color: #062967;
+    gap: 20px; /* Consistent spacing */
+    color: #008b8b; /* Teal shade */
     font-size: 18px;
-    width: 250px;
-}
-
-.modal-rental-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    color: #062967;
-    font-size: 18px;
-    width: 250px;
-}
-
-.modal-review-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    color: #062967;
-    font-size: 18px;
-    width: 250px;
+    width: 45%; /* Increased width for better layout */
 }
 
 .modal-horizontal-line {
     width: 6px;
     height: 61px;
-    background: #1648a4;
-    border-radius: 9px;
+    background: #075e54; /* Matching shade */
+    border-radius: 5px; /* Reduced border radius */
 }
 
 .modal-text-body {
-    color: #062967;
+    color: #008b8b; /* Teal shade */
     padding-top: 20px;
     font-size: 18px;
 }
 
 .modal-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     gap: 30px;
     width: 100%;
-    margin-top: 35px;
+    margin-top: 25px; /* Adjusted margin-top */
 }
 
 .book-underline-minor {
     align-items: center;
-    width: 61px;
+    width: 70px; /* Increased width */
     height: 2px;
-    background: #1648a4;
-    border-radius: 9px;
+    background: #075e54; /* Matching shade */
+    border-radius: 5px; /* Reduced border radius */
 }

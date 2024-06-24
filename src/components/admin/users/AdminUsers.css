@@ -1,11 +1,12 @@
 .user-container {
     display: flex;
     flex-direction: column;
-    margin: 10px auto auto;
-    background: #ffffff;
-    padding-bottom: 20px;
+    margin: 20px auto; /* Unified margin for consistency */
+    background: #f9f9f9; /* Softer background color */
+    padding: 20px; /* Unified padding */
     width: 800px;
-    border-radius: 30px;
+    border-radius: 25px; /* Reduced border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
 }
 
 .user-header {
@@ -14,20 +15,20 @@
     align-items: center;
     gap: 15px;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px; /* Adjusted margin-top */
 }
 
 .user-text {
-    color: #1648a4;
-    font-size: 48px;
+    color: #1a3e8c; /* Adjusted shade for readability */
+    font-size: 42px; /* Slightly reduced size */
     font-weight: 700;
 }
 
 .user-underline {
-    width: 61px;
+    width: 70px; /* Increased width */
     height: 6px;
-    background: #1648a4;
-    border-radius: 9px;
+    background: #1a3e8c; /* Matching shade */
+    border-radius: 5px; /* Reduced border radius */
 }
 
 .user-content {
@@ -35,37 +36,27 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 20px;
-    gap: 20px;
+    gap: 25px; /* Increased gap for better spacing */
 }
 
-.user-list {
+.user-list, .user-add-form {
     padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
-    width: 50%;
-}
-
-.user-add-form {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-    align-items: center;
-    width: 50%;
+    width: 45%; /* Adjusted width for better layout */
 }
 
 .modal-text {
     display: flex;
     flex-direction: row;
-    color: #1648a4;
+    color: #1a3e8c; /* Matching shade */
     font-size: 22px;
     justify-content: center;
-    font-weight: bold;
-    margin-top: auto;
+    font-weight: 600; /* Adjusted weight for balance */
+    margin-bottom: 20px; /* Ensure margin-bottom is applied */
 }
 
 .modal-button {
@@ -74,5 +65,10 @@
     justify-content: center;
     gap: 30px;
     width: 100%;
-    margin-top: 35px;
+    margin-top: 20px; /* Adjusted margin-top */
+}
+
+/* Ensuring no overlap */
+.user-add-form, .user-list {
+    flex-grow: 1; /* Allow these sections to grow */
 }

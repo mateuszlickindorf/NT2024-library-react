@@ -1,12 +1,13 @@
 .container {
     display: flex;
     flex-direction: column;
-    margin: 80px auto auto;
-    background: #ffffff;
-    padding-bottom: 20px;
+    margin: 60px auto; /* Reduced top margin */
+    background: #f9f9f9; /* Change to softer color */
+    padding: 20px; /* Unified padding */
     width: 800px;
-    height: 500px;
-    border-radius: 30px;
+    height: auto; /* Removed fixed height */
+    border-radius: 25px; /* Reduced border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
 }
 
 .header {
@@ -15,20 +16,20 @@
     align-items: center;
     gap: 15px;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px; /* Adjusted margin-top */
 }
 
 .text {
-    color: #1648a4;
-    font-size: 48px;
+    color: #1a3e8c; /* Adjusted shade for readability */
+    font-size: 42px; /* Slightly reduced size */
     font-weight: 700;
 }
 
 .underline {
-    width: 61px;
+    width: 70px; /* Increased width */
     height: 6px;
-    background: #1648a4;
-    border-radius: 9px;
+    background: #1a3e8c; /* Matching shade */
+    border-radius: 5px; /* Reduced border radius */
 }
 
 .content {
@@ -38,17 +39,17 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    gap: 20px;
+    gap: 25px; /* Increased gap for better spacing */
 }
 
 .modal-text {
     display: flex;
     flex-direction: row;
-    color: #1648a4;
+    color: #1a3e8c; /* Matching shade */
     font-size: 22px;
     justify-content: center;
-    font-weight: bold;
-    margin-top: auto;
+    font-weight: 600; /* Adjusted weight for balance */
+    margin-top: 20px; /* Added margin-top */
 }
 
 .modal-button {
@@ -57,5 +58,5 @@
     justify-content: center;
     gap: 30px;
     width: 100%;
-    margin-top: 35px;
+    margin-top: 25px; /* Adjusted margin-top */
 }

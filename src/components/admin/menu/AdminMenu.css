@@ -2,13 +2,13 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: auto;
-    margin-top: 100px;
-    background: #ffffff;
-    padding-bottom: 20px;
+    margin: 80px auto; /* Unified margin for consistency */
+    background: #f1f1f1; /* Softer background color */
+    padding: 20px; /* Unified padding for simplicity */
     width: 700px;
-    height: 570px;
-    border-radius: 30px;
+    height: auto; /* Removed fixed height for flexibility */
+    border-radius: 25px; /* Slightly reduced border radius */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
 }
 
 .header {
@@ -17,27 +17,27 @@
     align-items: center;
     gap: 15px;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px; /* Adjusted margin-top */
 }
 
 .text {
-    color: #1648a4;
-    font-size: 48px;
+    color: #1d3b8c; /* Darkened shade for better readability */
+    font-size: 42px; /* Slightly smaller font size */
     font-weight: 700;
 }
 
 .underline {
-    width: 61px;
+    width: 70px; /* Increased width */
     height: 6px;
-    background: #1648a4;
-    border-radius: 9px;
+    background: #1d3b8c; /* Matching shade with text */
+    border-radius: 5px; /* Subtler border radius */
 }
 
 .buttons {
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    margin: 55px 250px 60px;
+    gap: 40px; /* Reduced gap for better spacing */
+    margin: 40px 150px 40px; /* Simplified margin */
 }
 
 .icons {
@@ -49,18 +49,18 @@
 }
 
 .icon {
-    color: #1648a4;
-    font-size: 50px;
+    color: #1d3b8c; /* Matching shade */
+    font-size: 45px; /* Slightly reduced font size */
     cursor: pointer;
 }
 
 .modal-text {
     display: flex;
-    color: #1648a4;
+    color: #1d3b8c; /* Matching shade */
     font-size: 24px;
     justify-content: center;
     align-items: center;
-    font-weight: bolder;
+    font-weight: 600; /* Adjusted weight for balance */
     margin-bottom: 20px;
 }
 

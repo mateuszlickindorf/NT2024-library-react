@@ -1,12 +1,13 @@
 .container {
     display: flex;
     flex-direction: column;
-    margin: 80px auto auto;
-    background: #ffffff;
-    padding-bottom: 20px;
+    margin: 60px auto; /* Reduced top margin */
+    background: #f5f5f5; /* Light grey background for a softer appearance */
+    padding: 20px; /* Unified padding */
     width: 800px;
-    height: 500px;
-    border-radius: 30px;
+    height: auto; /* Removed fixed height */
+    border-radius: 25px; /* Reduced border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
 }
 
 .header {
@@ -15,20 +16,20 @@
     align-items: center;
     gap: 15px;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px; /* Adjusted margin-top */
 }
 
 .text {
-    color: #1648a4;
-    font-size: 48px;
+    color: #008080; /* Teal shade for distinct color */
+    font-size: 42px; /* Slightly reduced size */
     font-weight: 700;
 }
 
 .underline {
-    width: 61px;
+    width: 70px; /* Increased width */
     height: 6px;
-    background: #1648a4;
-    border-radius: 9px;
+    background: #008080; /* Matching teal shade */
+    border-radius: 5px; /* Reduced border radius */
 }
 
 .content {
@@ -38,7 +39,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    gap: 20px;
+    gap: 25px; /* Increased gap for better spacing */
 }
 
 .edit-review-form {
@@ -59,9 +60,9 @@
 
 .modal-underline-minor {
     align-items: center;
-    width: 61px;
+    width: 70px; /* Increased width */
     height: 4px;
-    margin-top: -20px;
-    background: #1648a4;
-    border-radius: 9px;
+    background: #008080; /* Matching teal shade */
+    border-radius: 5px; /* Reduced border radius */
+    margin-top: -10px; /* Adjusted margin */
 }
